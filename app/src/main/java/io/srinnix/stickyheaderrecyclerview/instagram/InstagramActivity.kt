@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_instagram.*
 class InstagramActivity : AppCompatActivity() {
 
     companion object {
-        val DEFAULT_SPACING = 2
+        val DEFAULT_SPACING = 36
     }
 
     lateinit var gridAdapter: GridAdapter

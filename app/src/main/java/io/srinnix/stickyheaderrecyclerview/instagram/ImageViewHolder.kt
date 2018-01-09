@@ -9,6 +9,6 @@ import kotlinx.android.synthetic.main.item_image.view.*
 class ImageViewHolder(override val containerView: View?) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
     fun bindData(color: String) {
-        itemView.imv_thumbnail.setColorFilter(Color.parseColor(color))
+        itemView.imv_thumbnail.setBackgroundColor(Color.parseColor(color))
     }
 }

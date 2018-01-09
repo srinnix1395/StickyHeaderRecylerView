@@ -1,23 +1,23 @@
 package io.srinnix.stickyheaderrecyclerview.instagram
 
-import android.graphics.Canvas
 import android.graphics.Rect
 import android.support.v7.widget.RecyclerView
 import android.view.View
 
 class GridSpacingDecoration(private val spacing: Int) : RecyclerView.ItemDecoration() {
 
-    override fun getItemOffsets(outRect: Rect?, view: View?, parent: RecyclerView?, state: RecyclerView.State?) {
-        super.getItemOffsets(outRect, view, parent, state)
+    private val spanCount = 3
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+        val position = parent.getChildAdapterPosition(view)
+        val column = position % 3 // item column
 
-        outRect?.set(1, 1, 1, 1)
+        outRect.left = column * spacing / spanCount
+        outRect.right = spacing - (column + 1) * spacing / spanCount
+        if (position >= spanCount) {
+            outRect.top = spacing
+        }
+
+        println("left ${outRect.left} right: ${outRect.right}")
     }
 
-    override fun onDraw(c: Canvas?, parent: RecyclerView?, state: RecyclerView.State?) {
-        super.onDraw(c, parent, state)
-    }
-
-    override fun onDrawOver(c: Canvas?, parent: RecyclerView?, state: RecyclerView.State?) {
-        super.onDrawOver(c, parent, state)
-    }
 }
