@@ -28,7 +28,7 @@ class InstagramActivity : AppCompatActivity() {
         rv_content.apply {
             adapter = gridAdapter
             layoutManager = GridLayoutManager(context, 3)
-            addItemDecoration(GridSpacingDecoration(DEFAULT_SPACING))
+            addItemDecoration(GridSpacingDecoration(DEFAULT_SPACING, (layoutManager as GridLayoutManager).spanCount))
         }
     }
 
