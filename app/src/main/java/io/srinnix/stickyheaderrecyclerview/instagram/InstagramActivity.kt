@@ -12,7 +12,7 @@ class InstagramActivity : AppCompatActivity() {
         val DEFAULT_SPACING = 36
     }
 
-    lateinit var gridAdapter: GridAdapter
+    private lateinit var gridAdapter: GridAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +22,10 @@ class InstagramActivity : AppCompatActivity() {
     }
 
     private fun initView() {
+        supportActionBar?.title = "Instagram"
+
         val listColor = getListMaterialColor()
-        gridAdapter = GridAdapter(listColor)
+        gridAdapter = GridAdapter(this, listColor)
 
         rv_content.apply {
             adapter = gridAdapter

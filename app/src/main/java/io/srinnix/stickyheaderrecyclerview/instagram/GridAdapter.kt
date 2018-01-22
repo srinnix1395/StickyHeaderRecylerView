@@ -1,14 +1,18 @@
 package io.srinnix.stickyheaderrecyclerview.instagram
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import io.srinnix.stickyheaderrecyclerview.R
 
-class GridAdapter(private val listColor: ArrayList<String>) : RecyclerView.Adapter<ImageViewHolder>() {
+class GridAdapter(context: Context,
+                  private val listColor: ArrayList<String>) : RecyclerView.Adapter<ImageViewHolder>() {
+
+    private val inflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ImageViewHolder {
-        val view = LayoutInflater.from(parent?.context).inflate(R.layout.item_image, parent, false)
+        val view = inflater.inflate(R.layout.item_image, parent, false)
         return ImageViewHolder(view)
     }
 
